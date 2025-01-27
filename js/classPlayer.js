@@ -2,7 +2,7 @@ class Player {
     constructor() {
         // Define player's dimensions and movement properties
         this.width = 10; // Player width in vw
-        this.height = 10; // Player height in vh
+        this.height = 17; // Player height in vh
         this.stepSize = 25; // Movement step size in vw
         this.fixedPositions = [10, 35, 60, 80]; // Predefined X positions for the player
         this.currentStepIndex = 2; // Start at the middle position

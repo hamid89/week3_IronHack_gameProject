@@ -6,20 +6,37 @@ body {
 #board {
     width: 100vw;
     height: 100vh;
-    background-color: rgb(216, 197, 232);
-    position: center;
+    background-image: url("../images/main.png"); /* Use background-image for images */
+    background-size: cover; /* Ensures the image covers the entire board */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image */
     overflow: hidden;
 }
 
 #player {
-    background-color: rgb(255, 0, 166);
+    /*background-color: url("../images/mario.png");
+    position: absolute;*/
+    background-image: url("../images/mario.png"); 
+    background-size: contain; /* Ensures the entire image fits inside the element */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image within the element */
+    width: 150px; /* Adjust width to fit the image */
+    height: 150px; /* Adjust height to fit the image */
     position: absolute;
 }
 
 .obstacle {
-    background-color: rgb(110, 28, 110);
+    /*background-color: rgb(110, 28, 110);
+    position: absolute;*/
+    background-image: url("../images/crow.png"); 
+    background-size: contain; /* Ensures the entire image fits inside the element */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image within the element */
+    width: 150px; /* Adjust width to fit the image */
+    height: 150px; /* Adjust height to fit the image */
     position: absolute;
 }
+
 
 
 #page-gameover {
@@ -33,24 +50,140 @@ body {
     left: 10px;
     font-size: 20px;
     font-weight: bold;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
     padding: 5px 10px;
     border-radius: 5px;
   }
 
-  #timer-over {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    background: rgba(0, 0, 0, 0.1);
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-  #message {
+/* Center the entire content */
+#page-gameover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../images/end.png"); /* Path to your background image */
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-position: center; /* Centers the image */
+    margin: 0;
+}
+
+/* Center the container */
+#container {
     text-align: center;
-    margin-top: 50px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for the message */
+#message {
+    margin-top: 20px;
     font-size: 24px;
     color: red;
-  }
+}
+
+/* Styling for the button */
+#play-again {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgb(110, 28, 110);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#home {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgb(110, 28, 110);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#play-again:hover {
+    background-color: rgb(150, 50, 150);
+}
+
+#home:hover {
+    background-color: rgb(150, 50, 150);
+}
+
+/* General styles for the start page */
+#page-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../images/start.png"); /* Replace with your background image */
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    font-family: Arial, sans-serif; /* Clean, modern font */
+}
+
+.home-container {
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.7); /* Slightly darker background for contrast */
+    padding: 30px 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    width: 90%; /* Responsive size */
+}
+
+.game-title {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#start-button {
+    font-size: 1.5rem;
+    color: white;
+    background-color: #ff6f61; /* Warm, inviting color */
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+}
+
+#start-button:hover {
+    background-color: #ff4e3c;
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.controls {
+    font-size: 1.3rem;
+    margin: 25px 0;
+    color: #f0f0f0;
+    text-align: left; /* Align text inside controls */
+}
+
+.controls ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.controls li::before {
+    content: '🔸'; /* Modern bullet icon */
+    margin-right: 10px;
+    color: #ff6f61;
+    font-size: 1.2rem;
+}
+
+.controls li {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+

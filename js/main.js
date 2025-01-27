@@ -30,7 +30,7 @@ setInterval(() => {
             ) {
                 // Collision detected
                 localStorage.setItem('elapsedTime', `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`)
-                window.location.href = '../gameOver.html'
+                window.location.href = '../html/gameOver.html'
                 //console.log("game over...") 
                 //location.href = "../gameover.html" 
             }

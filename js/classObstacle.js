@@ -2,7 +2,7 @@ class Obstacle {
     constructor() {
         // Define obstacle dimensions and initial position
         this.width = 10; // Obstacle width in vw
-        this.height = 10; // Obstacle height in vh
+        this.height = 13; // Obstacle height in vh
         this.positionX = this.getFixedPosition(); // Randomized X position
         this.positionY = 100; // Start at the top of the screen
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Home</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body id="page-home">
+    <div class="home-container">
+        <h1 class="game-title">Welcome to Mario's Moon Adventure!</h1>
+        <div class="controls">
+            <p>Controls:</p>
+            <ul>
+                <li>← Left Arrow: Move Left</li>
+                <li>→ Right Arrow: Move Right</li>
+                <li>↑ Up Arrow: Jump</li>
+            </ul>
+        </div>
+        <button id="start-button">Start Game</button>
+    </div>
+
+    <script>
+        document.getElementById('start-button').addEventListener('click', () => {
+            window.location.href = '../html/index.html'; // Redirects to the game page
+        });
+    </script>
+</body>
+
+</html>
