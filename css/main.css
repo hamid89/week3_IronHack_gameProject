@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#board {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(216, 197, 232);
+    position: center;
+    overflow: hidden;
+}
+
+#player {
+    background-color: rgb(255, 0, 166);
+    position: absolute;
+}
+
+.obstacle {
+    background-color: rgb(110, 28, 110);
+    position: absolute;
+}
+
+
+#page-gameover {
+    text-align: center;
+    background-color: rgb(216, 197, 232);
+}
+
+#timer {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+
+  #timer-over {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  #message {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 24px;
+    color: red;
+  }
