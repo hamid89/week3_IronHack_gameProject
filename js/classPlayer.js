@@ -56,7 +56,7 @@ class Player {
                 this.positionY += 1; // Increment height
                 this.updateUI();
             }
-        }, 30); // Update interval for smooth animation
+        }, 20); // Update interval for smooth animation
     }
 
     // Handle descending after the jump

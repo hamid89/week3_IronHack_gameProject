@@ -47,6 +47,21 @@ function PlayJumpMusic(){
    //   backgroundMusic.play()
 //  }
 }
+// death sound and redirecting towards game over page
+const deathSound = new Audio ("./audios/death_sound.flac")
+deathSound.muted = false
+deathSound.volume = 0.5
+
+function deathMusic(){
+    deathSound.play().catch((error) => {
+      console.log('death sound could not be played. Error:', error)
+    })
+    deathSound.onended = () => {
+        localStorage.setItem('elapsedTime', `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`)  
+        window.location.href = './gameover.html'   // Redirect after music ends
+    }
+}
+
 
 // Instantiate the player
 const player = new Player() 
@@ -58,8 +73,9 @@ setInterval(() => {
     obstaclesArr.push(newObstacle) 
 }, 1000) 
 
-// Update obstacles and check for collisions
-setInterval(() => {
+// Update obstacles and check for collisions and also stop the game if collsion happens
+let gameOver = false
+const game = setInterval(() => {
     obstaclesArr.forEach((obstacleInstance, i, arr) => {
         obstacleInstance.moveDown() 
 
@@ -78,17 +94,17 @@ setInterval(() => {
                 player.positionY + player.height > obstacleInstance.positionY
             ) {
                 // Collision detected
-                localStorage.setItem('elapsedTime', `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`)  
-                window.location.href = './gameover.html'   // Redirect after music ends
-                 
-               
+                gameOver = true
+                clearInterval(game)
+                deathMusic()
             }
         }
     }) 
-}, 30) 
+}, 20) 
 
 // Handle player controls
 document.addEventListener("keydown", (event) => {
+    if (gameOver) return
     if (event.code === "ArrowLeft") {
         player.moveLeft() 
         PlayJumpMusic()
