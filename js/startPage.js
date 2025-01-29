@@ -26,5 +26,5 @@ if (backgroundMusic.muted) {
 }
 });
     document.getElementById('start-button').addEventListener('click', () => {
-        window.location.href = '../html/game.html'; // Redirects to the game page
+        window.location.href = './game.html'; // Redirects to the game page
 });
