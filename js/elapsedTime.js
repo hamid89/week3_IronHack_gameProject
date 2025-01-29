@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
 const elapsedTime = localStorage.getItem('elapsedTime') || '00:00'
 document.getElementById('message').textContent = `Mario Lasted: ${elapsedTime}`
 document.getElementById('play-again').addEventListener('click', () => {
-    window.location.href = '../html/index.html'
+    window.location.href = '../html/game.html'
 })
 
 document.getElementById('home').addEventListener('click', () => {
-    window.location.href = '../html/start.html'   
+    window.location.href = '../index.html'   
 })
