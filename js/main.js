@@ -1,6 +1,6 @@
 
 // Create an audio element
-const backgroundMusic = new Audio('../audios/marios_background_sound.wav')
+const backgroundMusic = new Audio('./audios/marios_background_sound.wav')
 
 // Configure the audio
 backgroundMusic.loop = true // Loop the music
@@ -28,7 +28,7 @@ if (backgroundMusic.muted) {
 }) 
 
 // jump music
-const jumpMusic = new Audio("../audios/jump_sound.wav")
+const jumpMusic = new Audio("./audios/jump_sound.wav")
 jumpMusic.volume = 0.5
 jumpMusic.muted = false
 

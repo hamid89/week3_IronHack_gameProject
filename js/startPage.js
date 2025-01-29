@@ -1,5 +1,5 @@
 // Create an audio element
-const backgroundMusic = new Audio('../audios/start_sound.wav');
+const backgroundMusic = new Audio('./audios/start_sound.wav');
 
 // Configure the audio
 backgroundMusic.loop = true; // Loop the music

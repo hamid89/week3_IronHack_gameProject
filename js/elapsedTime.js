@@ -1,12 +1,12 @@
 
 
-const deathMusic = new Audio ("../audios/death_sound.flac")
+const deathMusic = new Audio ("./audios/death_sound.flac")
 deathMusic.loop = false
 deathMusic.muted = false
 deathMusic.volume = 0.5
 deathMusic.play()
 
-const gameOverMusic = new Audio("../audios/game_over.wav")
+const gameOverMusic = new Audio("./audios/game_over.wav")
 gameOverMusic.loop = false
 gameOverMusic.muted = false
 gameOverMusic.volume = 0.5
