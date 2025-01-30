@@ -17,8 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
     })  
 })  
 
-const elapsedTime = localStorage.getItem('elapsedTime') || '00:00'
-document.getElementById('message').textContent = `Mario Lasted: ${elapsedTime}`
+const elapsedTime = localStorage.getItem('elapsedTime')
+const skippedCrow = localStorage.getItem('skippedCrow')
+if (skippedCrow > 1){
+    document.getElementById('message').textContent = `Mario Lasted for ${elapsedTime} and skipped ${skippedCrow} crows`
+} else {
+    document.getElementById('message').textContent = `Mario Lasted for ${elapsedTime} and skipped ${skippedCrow} crow`
+}
 document.getElementById('play-again').addEventListener('click', () => {
     window.location.href = './game.html'
 })

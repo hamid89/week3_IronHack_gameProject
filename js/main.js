@@ -51,13 +51,14 @@ function PlayJumpMusic(){
 const deathSound = new Audio ("./audios/death_sound.flac")
 deathSound.muted = false
 deathSound.volume = 0.5
-
+let skippedCrow = 0
 function deathMusic(){
     deathSound.play().catch((error) => {
       console.log('death sound could not be played. Error:', error)
     })
     deathSound.onended = () => {
-        localStorage.setItem('elapsedTime', `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`)  
+        localStorage.setItem('elapsedTime', `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`) 
+        localStorage.setItem('skippedCrow',skippedCrow) 
         window.location.href = './gameover.html'   // Redirect after music ends
     }
 }
@@ -71,16 +72,16 @@ const obstaclesArr = []  // Array to store obstacles
 setInterval(() => {
     const newObstacle = new Obstacle() 
     obstaclesArr.push(newObstacle) 
-}, 1000) 
+}, 500) 
 
 // Update obstacles and check for collisions and also stop the game if collsion happens
 let gameOver = false
 const game = setInterval(() => {
     obstaclesArr.forEach((obstacleInstance, i, arr) => {
         obstacleInstance.moveDown() 
-
         // Remove obstacles that leave the screen
         if (obstacleInstance.positionY <= 0) {
+            skippedCrow++
             obstacleInstance.obstacleElm.remove()  // Remove from DOM
             arr.splice(i, 1)  // Remove from array
         }
@@ -95,6 +96,7 @@ const game = setInterval(() => {
             ) {
                 // Collision detected
                 gameOver = true
+                updateTimer()
                 clearInterval(game)
                 deathMusic()
             }
@@ -123,6 +125,7 @@ document.addEventListener("keydown", (event) => {
 
     // Update the timer every second
     function updateTimer() {
+      if (gameOver) return
       seconds++  
       if (seconds === 60) {
         minutes++  

@@ -9,7 +9,7 @@ class Player {
         this.positionX = this.fixedPositions[this.currentStepIndex]; // Initial X position
         this.positionY = 5; // Initial Y position (ground level)
         this.isJumping = false; // Flag to prevent multiple jumps
-        this.jumpHeight = 12; // Maximum jump height in vh
+        this.jumpHeight = 15; // Maximum jump height in vh
         this.playerElm = document.getElementById("player"); // DOM element representing the player
         this.updateUI(); // Initial UI update
     }
@@ -24,11 +24,12 @@ class Player {
 
     // Move the player left if possible
     moveLeft() {
-        if (this.currentStepIndex > 0) {
+            if (this.currentStepIndex > 0) {
             this.currentStepIndex--; // Move to the previous position
             this.positionX = this.fixedPositions[this.currentStepIndex];
             this.updateUI();
         }
+   
     }
 
     // Move the player right if possible
