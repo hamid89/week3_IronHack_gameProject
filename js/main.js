@@ -86,12 +86,12 @@ setInterval(() => {
 }, 500) 
 
 
-// collision between each fire and obstacle
+
 
 
 // Update obstacles and check for collisions and also stop the game if collsion happens
 let gameOver = false
-let fireArr = []
+
 // Update game loop to check for collisions between fire and obstacles separately
 const game = setInterval(() => {
     // Check obstacles and fire collisions
@@ -161,4 +161,4 @@ document.addEventListener("keydown", (event) => {
 
     // Start the timer
     setInterval(updateTimer, 1000)  
-    console.log(fireArr[0])
+    
