@@ -85,11 +85,19 @@ setInterval(() => {
     obstaclesArr.push(newObstacle) 
 }, 500) 
 
+
+// collision between each fire and obstacle
+
+
 // Update obstacles and check for collisions and also stop the game if collsion happens
 let gameOver = false
+let fireArr = []
+// Update game loop to check for collisions between fire and obstacles separately
 const game = setInterval(() => {
+    // Check obstacles and fire collisions
     obstaclesArr.forEach((obstacleInstance, i, arr) => {
         obstacleInstance.moveDown() 
+
         // Remove obstacles that leave the screen
         if (obstacleInstance.positionY <= 0) {
             skippedCrow++
@@ -97,7 +105,7 @@ const game = setInterval(() => {
             arr.splice(i, 1)  // Remove from array
         }
 
-        // Check for collisions only if the player is on the ground
+        // Check for collisions between player and obstacles (Game Over logic)
         if (!player.isJumping && player.positionY <= 5) {
             if (
                 player.positionX < obstacleInstance.positionX + obstacleInstance.width &&
@@ -105,15 +113,18 @@ const game = setInterval(() => {
                 player.positionY < obstacleInstance.positionY + obstacleInstance.height &&
                 player.positionY + player.height > obstacleInstance.positionY
             ) {
-                // Collision detected
+                // Collision detected, end the game
                 gameOver = true
                 updateTimer()
                 clearInterval(game)
                 deathMusic()
             }
         }
-    }) 
-}, 20) 
+
+        
+    }); 
+}, 20);
+
 
 // Handle player controls
 document.addEventListener("keydown", (event) => {
@@ -127,7 +138,7 @@ document.addEventListener("keydown", (event) => {
     } else if (event.code === "ArrowUp") {
         player.jump() 
         PlayJumpMusic()
-    }
+    } 
 }) 
 
     // Initialize variables for minutes and seconds
@@ -150,3 +161,4 @@ document.addEventListener("keydown", (event) => {
 
     // Start the timer
     setInterval(updateTimer, 1000)  
+    console.log(fireArr[0])
