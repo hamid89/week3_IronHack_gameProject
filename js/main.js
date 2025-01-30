@@ -27,6 +27,16 @@ if (backgroundMusic.muted) {
 }
 }) 
 
+const crowSound = new Audio('./audios/crow_sound.mp3')
+crowSound.volume = 0.5
+
+function playCrowSound(){
+    if (gameOver) return
+    crowSound.play().catch((error) => {
+        console.log('Autoplay was blocked by the browser. Please interact with the page to play music.')
+    })
+}
+
 // jump music
 const jumpMusic = new Audio("./audios/jump_sound.wav")
 jumpMusic.volume = 0.5
@@ -71,6 +81,7 @@ const obstaclesArr = []  // Array to store obstacles
 // Periodically create new obstacles
 setInterval(() => {
     const newObstacle = new Obstacle() 
+    playCrowSound()
     obstaclesArr.push(newObstacle) 
 }, 500) 
 
